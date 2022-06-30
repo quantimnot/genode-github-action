@@ -95,6 +95,6 @@ jobs:
           choosenim ${{ matrix.nim }}
       - id: build-genode
         run: |
-          git clone --depth 1 https://github.com/skalk/genode-devel-docker.git
-          cd genode-devel-docker
-          ./docker build
+          curl -L https://genode.org/files/sculpt/sculpt-22-04.img -o skulpt.img
+          # curl -L https://genode.org/files/sculpt/sculpt-22-04.img.asc -o skulpt.img.asc
+          qemu-system-x86_64 -display sdl -cpu core2duo -machine q35 -m 1024 -drive format=raw,file=sculpt.img
