@@ -52,7 +52,7 @@ jobs:
           {
             curl -L https://genode.org/files/sculpt/sculpt-22-04.img -o skulpt.img &
             fetch_jobs=$!
-            sudo apt-get install qemu-kvm qemu libvirt-bin &
+            sudo apt-get install qemu-kvm qemu &
             fetch_jobs="$fetch_jobs $!"
             wait $fetch_jobs
           }
